@@ -1,55 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OurDM — Privacy Policy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-+<!DOCTYPE html>
-+<html lang="en">
-+<head>
-+  <meta charset="UTF-8" />
-+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+  <title>OurDM Privacy Policy</title>
-+  <style>
-+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; line-height: 1.6; color: #0b1221; }
-+    h1, h2 { color: #0b1221; }
-+    .meta { color: #555; font-size: 14px; }
-+  </style>
-+</head>
-+<body>
-+  <h1>OurDM Privacy Policy</h1>
-+  <p class="meta">Last updated: February 27, 2026</p>
-+
-+  <h2>Who we are</h2>
-+  <p>OurDM, built by Sameer Shah (Cambridge Public School, Raxaul). Contact: <a href="mailto:support@ourdm.app">support@ourdm.app</a>, +91 8102668206.</p>
-+
-+  <h2>Data we process</h2>
-+  <ul>
-+    <li>Phone number for authentication (Firebase Auth).</li>
-+    <li>Optional contacts (with consent) for friend suggestions; stored locally unless you opt in.</li>
-+    <li>Media/mic/camera for messaging/calls.</li>
-+    <li>Optional Google Drive backup (appDataFolder scope only) when connected.</li>
-+  </ul>
-+
-+  <h2>Storage & retention</h2>
-+  <ul>
-+    <li>1:1 messages are end‑to‑end encrypted. Delivered messages are cleared from cloud queues; undelivered copies auto‑delete after 7 days.</li>
-+    <li>“Pocket”/locked items stay on-device only.</li>
-+    <li>Backups live in your Google Drive appDataFolder; you control deletion.</li>
-+  </ul>
-+
-+  <h2>Sharing</h2>
-+  <p>No selling of personal data. Shared only with infrastructure providers (Firebase/Google) to run the service. No iCloud.</p>
-+
-+  <h2>Your rights</h2>
-+  <ul>
-+    <li>Export data in Settings.</li>
-+    <li>Request deletion via <a href="mailto:support@ourdm.app">support@ourdm.app</a>.</li>
-+    <li>Withdraw consent for contacts or Drive anytime in Settings.</li>
-+  </ul>
-+
-+  <h2>India IT Rules 2021</h2>
-+  <p>Grievance officer: Sameer Shah, <a href="mailto:support@ourdm.app">support@ourdm.app</a>, +91 8102668206. We target statutory response/takedown timelines.</p>
-+
-+  <h2>Security</h2>
-+  <p>E2E for direct chats; TLS in transit; device binding to prevent silent multi-login; rate limits and access controls.</p>
-+
-+  <h2>Updates</h2>
-+  <p>Material changes will be announced in-app; “Last updated” will reflect revisions.</p>
-+</body>
-+</html>
+    :root {
+      --bg: #0d0f1a;
+      --surface: #13162a;
+      --border: rgba(255,255,255,.08);
+      --text: #eef0ff;
+      --muted: #7a85a3;
+      --radius: 18px;
+      --blue:   #4f8eff;
+      --purple: #a855f7;
+      --pink:   #ec4899;
+      --teal:   #2dd4bf;
+      --orange: #fb923c;
+      --green:  #34d399;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,15,26,.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 820px; margin: 0 auto; padding: 0 24px;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo img { height: 36px; width: auto; display: block; }
+    .hero-logo { display: flex; justify-content: center; margin-bottom: 20px; }
+    .hero-logo img { height: 72px; width: auto; }
+    nav a {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; margin-left: 8px;
+      padding: 5px 14px; border-radius: 100px; transition: all .2s;
+    }
+    nav a:hover { color: var(--text); background: rgba(255,255,255,.07); }
+    nav a.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 80px 24px 72px; text-align: center;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 15% 60%, rgba(79,142,255,.2) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 55% at 85% 35%, rgba(168,85,247,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 40% at 50% 105%, rgba(236,72,153,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(79,142,255,.12);
+      border: 1px solid rgba(79,142,255,.28);
+      color: var(--blue); font-size: 11px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .hero-badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.1; letter-spacing: -1px;
+      background: linear-gradient(140deg, #fff 20%, #c4b5fd 60%, var(--pink) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 14px;
+    }
+    .meta { font-size: 13px; color: var(--muted); }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 820px; margin: 0 auto;
+      padding: 12px 24px 80px; display: grid; gap: 14px;
+    }
+
+    .section {
+      border-radius: var(--radius);
+      padding: 28px 28px 28px 34px;
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform .2s, box-shadow .25s;
+    }
+    .section:hover { transform: translateY(-2px); box-shadow: 0 16px 48px rgba(0,0,0,.4); }
+    .section::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 4px;
+    }
+
+    .s1 { background: linear-gradient(115deg, rgba(79,142,255,.07) 0%, var(--surface) 55%); } .s1::before { background: linear-gradient(to bottom, var(--blue), #7eb3ff); }
+    .s2 { background: linear-gradient(115deg, rgba(168,85,247,.07) 0%, var(--surface) 55%); } .s2::before { background: linear-gradient(to bottom, var(--purple), #c084fc); }
+    .s3 { background: linear-gradient(115deg, rgba(45,212,191,.07) 0%, var(--surface) 55%); } .s3::before { background: linear-gradient(to bottom, var(--teal), #67e8f9); }
+    .s4 { background: linear-gradient(115deg, rgba(236,72,153,.07) 0%, var(--surface) 55%); } .s4::before { background: linear-gradient(to bottom, var(--pink), #f9a8d4); }
+    .s5 { background: linear-gradient(115deg, rgba(251,146,60,.07) 0%, var(--surface) 55%); } .s5::before { background: linear-gradient(to bottom, var(--orange), #fcd34d); }
+    .s6 { background: linear-gradient(115deg, rgba(52,211,153,.07) 0%, var(--surface) 55%); } .s6::before { background: linear-gradient(to bottom, var(--green), #86efac); }
+    .s7 { background: linear-gradient(115deg, rgba(79,142,255,.07) 0%, var(--surface) 55%); } .s7::before { background: linear-gradient(to bottom, var(--blue), var(--purple)); }
+    .s8 { background: linear-gradient(115deg, rgba(168,85,247,.07) 0%, var(--surface) 55%); } .s8::before { background: linear-gradient(to bottom, var(--purple), var(--pink)); }
+
+    h2 { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    p { font-size: 14px; color: var(--muted); font-weight: 300; }
+    ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    ul li { font-size: 14px; color: var(--muted); font-weight: 300; padding-left: 20px; position: relative; }
+    ul li::before { content: '▸'; position: absolute; left: 0; top: 3px; font-size: 10px; line-height: 1.6; }
+    .s1 li::before, .s7 li::before { color: var(--blue); }
+    .s2 li::before, .s8 li::before { color: var(--purple); }
+    .s3 li::before { color: var(--teal); }
+    .s4 li::before { color: var(--pink); }
+    .s5 li::before { color: var(--orange); }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: rgba(255,255,255,.08); color: var(--teal); font-size: 12px; padding: 1px 7px; border-radius: 5px; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 24px; text-align: center; }
+    footer p { font-size: 13px; color: var(--muted); }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media(max-width:600px) {
+      .section { padding: 22px 20px 22px 26px; }
+      .hero { padding: 56px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="/"><img src="https://raw.githubusercontent.com/AllRounderBoy7/ourdm.app/main/logo.png" alt="OurDM"></a>
+      <nav>
+        <a href="/privacy" class="active">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-logo"><img src="https://raw.githubusercontent.com/AllRounderBoy7/ourdm.app/main/logo.png" alt="OurDM"></div>
+    <div class="hero-badge"><i></i> Legal Document</div>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: February 27, 2026</p>
+  </div>
+
+  <div class="content">
+
+    <div class="section s1">
+      <h2>Who we are</h2>
+      <p>OurDM is built by Sameer Shah. Reach us at <a href="mailto:ourdmofficial@gmail.com">ourdmofficial@gmail.com</a> or +91 8102668206.</p>
+    </div>
+
+    <div class="section s2">
+      <h2>Data we process</h2>
+      <ul>
+        <li>Phone number for authentication via Firebase Auth.</li>
+        <li>Optional contacts (with your consent) for friend suggestions — stored locally unless you opt in.</li>
+        <li>Media, microphone, and camera access for messaging and calls.</li>
+        <li>Optional Google Drive backup using the <code>appDataFolder</code> scope only, when you connect it.</li>
+      </ul>
+    </div>
+
+    <div class="section s3">
+      <h2>Storage &amp; retention</h2>
+      <ul>
+        <li>1:1 messages are end‑to‑end encrypted. Delivered messages are cleared from cloud queues; undelivered copies auto-delete after 7 days.</li>
+        <li>"Pocket" / locked items remain on-device only — never uploaded.</li>
+        <li>Backups live in your Google Drive <code>appDataFolder</code>; you control deletion.</li>
+      </ul>
+    </div>
+
+    <div class="section s4">
+      <h2>Sharing</h2>
+      <p>We do not sell your personal data. Data is shared only with infrastructure providers (Firebase / Google) required to run the service. No iCloud integration.</p>
+    </div>
+
+    <div class="section s5">
+      <h2>Your rights</h2>
+      <ul>
+        <li>Export your data anytime from Settings.</li>
+        <li>Request deletion via <a href="mailto:ourdmofficial@gmail.com">ourdmofficial@gmail.com</a>.</li>
+        <li>Withdraw consent for contacts or Drive access anytime in Settings.</li>
+      </ul>
+    </div>
+
+    <div class="section s6">
+      <h2>India IT Rules 2021</h2>
+      <p>Grievance officer: Sameer Shah — <a href="mailto:ourdmofficial@gmail.com">ourdmofficial@gmail.com</a>, +91 8102668206. We target statutory response and takedown timelines.</p>
+    </div>
+
+    <div class="section s7">
+      <h2>Security</h2>
+      <p>End-to-end encryption for direct chats; TLS in transit; device binding to prevent silent multi-login; rate limits and access controls.</p>
+    </div>
+
+    <div class="section s8">
+      <h2>Updates</h2>
+      <p>Material changes will be announced in-app. The "Last updated" date at the top of this page will reflect any revisions.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 OurDM &nbsp;·&nbsp; <a href="mailto:ourdmofficial@gmail.com">ourdmofficial@gmail.com</a> &nbsp;·&nbsp; <a href="/terms">Terms of Service</a></p>
+  </footer>
+
+</body>
+</html>
