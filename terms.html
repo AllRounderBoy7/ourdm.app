@@ -1,60 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OurDM — Terms of Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-+<!DOCTYPE html>
-+<html lang="en">
-+<head>
-+  <meta charset="UTF-8" />
-+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+  <title>OurDM Terms of Service</title>
-+  <style>
-+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; line-height: 1.6; color: #0b1221; }
-+    h1, h2 { color: #0b1221; }
-+    .meta { color: #555; font-size: 14px; }
-+  </style>
-+</head>
-+<body>
-+  <h1>OurDM Terms of Service</h1>
-+  <p class="meta">Last updated: February 27, 2026</p>
-+
-+  <h2>Acceptance</h2>
-+  <p>By using OurDM you agree to these Terms and the Privacy Policy.</p>
-+
-+  <h2>Eligibility</h2>
-+  <p>Minimum age 13 (or higher per local law). Indian users must follow IT Rules 2021.</p>
-+
-+  <h2>Your account</h2>
-+  <ul>
-+    <li>You’re responsible for your device and OTP security.</li>
-+    <li>Single active device enforced; new logins may sign out others.</li>
-+  </ul>
-+
-+  <h2>Acceptable use</h2>
-+  <ul>
-+    <li>No illegal, harmful, infringing, harassing, or spam content.</li>
-+    <li>No malware, hacking, reverse engineering, or service disruption.</li>
-+    <li>Respect privacy and consent of others.</li>
-+  </ul>
-+
-+  <h2>Content & backups</h2>
-+  <ul>
-+    <li>You own your content; we claim no ownership.</li>
-+    <li>Undelivered messages auto-delete after 7 days; delivered messages cleared from cloud queues.</li>
-+    <li>Drive backups stored in your appDataFolder; managed by you.</li>
-+    <li>“Pocket” vault remains on-device only.</li>
-+  </ul>
-+
-+  <h2>Availability</h2>
-+  <p>Service is provided “as is”; features may change, pause, or end.</p>
-+
-+  <h2>Liability</h2>
-+  <p>To the fullest extent permitted, we’re not liable for indirect or consequential damages; total liability is limited to amounts you paid in the last 12 months.</p>
-+
-+  <h2>Termination</h2>
-+  <p>We may suspend/terminate for policy or legal violations; you may stop using anytime.</p>
-+
-+  <h2>Governing law</h2>
-+  <p>Indian law governs; courts of Bihar, India have jurisdiction.</p>
-+
-+  <h2>Contact</h2>
-+  <p><a href="mailto:support@ourdm.app">support@ourdm.app</a> | +91 8102668206</p>
-+</body>
-+</html>
+    :root {
+      --bg: #0d0f1a;
+      --surface: #13162a;
+      --border: rgba(255,255,255,.08);
+      --text: #eef0ff;
+      --muted: #7a85a3;
+      --radius: 18px;
+      --blue:   #4f8eff;
+      --purple: #a855f7;
+      --pink:   #ec4899;
+      --teal:   #2dd4bf;
+      --orange: #fb923c;
+      --green:  #34d399;
+      --yellow: #facc15;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,15,26,.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 820px; margin: 0 auto; padding: 0 24px;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo img { height: 36px; width: auto; display: block; }
+    .hero-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; gap: 10px; }
+    .hero-logo img { height: 72px; width: auto; }
+    .hero-appname { font-family: 'DM Serif Display', serif; font-size: 28px; letter-spacing: -0.5px; background: linear-gradient(135deg, #fff 30%, #99f6e4 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    nav a {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; margin-left: 8px;
+      padding: 5px 14px; border-radius: 100px; transition: all .2s;
+    }
+    nav a:hover { color: var(--text); background: rgba(255,255,255,.07); }
+    nav a.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+    }
+
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 80px 24px 72px; text-align: center;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 20% 55%, rgba(45,212,191,.16) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 55% at 80% 35%, rgba(79,142,255,.15) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 55% 100%, rgba(250,204,21,.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(45,212,191,.10);
+      border: 1px solid rgba(45,212,191,.28);
+      color: var(--teal); font-size: 11px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .hero-badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.1; letter-spacing: -1px;
+      background: linear-gradient(140deg, #fff 20%, #99f6e4 60%, var(--blue) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 14px;
+    }
+    .meta { font-size: 13px; color: var(--muted); }
+
+    .content {
+      max-width: 820px; margin: 0 auto;
+      padding: 12px 24px 80px; display: grid; gap: 14px;
+    }
+
+    .section {
+      border-radius: var(--radius);
+      padding: 28px 28px 28px 34px;
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform .2s, box-shadow .25s;
+    }
+    .section:hover { transform: translateY(-2px); box-shadow: 0 16px 48px rgba(0,0,0,.4); }
+    .section::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+
+    .s1  { background: linear-gradient(115deg, rgba(45,212,191,.07) 0%, var(--surface) 55%); }  .s1::before  { background: linear-gradient(to bottom, var(--teal), #67e8f9); }
+    .s2  { background: linear-gradient(115deg, rgba(250,204,21,.06) 0%, var(--surface) 55%); }  .s2::before  { background: linear-gradient(to bottom, var(--yellow), #fde68a); }
+    .s3  { background: linear-gradient(115deg, rgba(79,142,255,.07) 0%, var(--surface) 55%); }  .s3::before  { background: linear-gradient(to bottom, var(--blue), #93c5fd); }
+    .s4  { background: linear-gradient(115deg, rgba(236,72,153,.07) 0%, var(--surface) 55%); }  .s4::before  { background: linear-gradient(to bottom, var(--pink), #fda4af); }
+    .s5  { background: linear-gradient(115deg, rgba(168,85,247,.07) 0%, var(--surface) 55%); }  .s5::before  { background: linear-gradient(to bottom, var(--purple), #d8b4fe); }
+    .s6  { background: linear-gradient(115deg, rgba(52,211,153,.07) 0%, var(--surface) 55%); }  .s6::before  { background: linear-gradient(to bottom, var(--green), #86efac); }
+    .s7  { background: linear-gradient(115deg, rgba(251,146,60,.07) 0%, var(--surface) 55%); }  .s7::before  { background: linear-gradient(to bottom, var(--orange), #fcd34d); }
+    .s8  { background: linear-gradient(115deg, rgba(236,72,153,.07) 0%, var(--surface) 55%); }  .s8::before  { background: linear-gradient(to bottom, var(--pink), var(--purple)); }
+    .s9  { background: linear-gradient(115deg, rgba(45,212,191,.07) 0%, var(--surface) 55%); }  .s9::before  { background: linear-gradient(to bottom, var(--teal), var(--blue)); }
+    .s10 { background: linear-gradient(115deg, rgba(79,142,255,.07) 0%, var(--surface) 55%); }  .s10::before { background: linear-gradient(to bottom, var(--blue), var(--teal)); }
+
+    h2 { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    p { font-size: 14px; color: var(--muted); font-weight: 300; }
+    ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    ul li { font-size: 14px; color: var(--muted); font-weight: 300; padding-left: 20px; position: relative; }
+    ul li::before { content: '▸'; position: absolute; left: 0; top: 3px; font-size: 10px; line-height: 1.6; }
+    .s1 li::before, .s9 li::before  { color: var(--teal); }
+    .s2 li::before                  { color: var(--yellow); }
+    .s3 li::before, .s10 li::before { color: var(--blue); }
+    .s4 li::before, .s8 li::before  { color: var(--pink); }
+    .s5 li::before                  { color: var(--purple); }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: rgba(255,255,255,.08); color: var(--teal); font-size: 12px; padding: 1px 7px; border-radius: 5px; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 24px; text-align: center; }
+    footer p { font-size: 13px; color: var(--muted); }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media(max-width:600px) {
+      .section { padding: 22px 20px 22px 26px; }
+      .hero { padding: 56px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="/"><img src="https://raw.githubusercontent.com/AllRounderBoy7/ourdm.app/main/logo.png" alt="OurDM"></a>
+      <nav>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms" class="active">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-logo"><img src="https://raw.githubusercontent.com/AllRounderBoy7/ourdm.app/main/logo.png" alt="OurDM"><div class="hero-appname">OurDM</div></div>
+    <div class="hero-badge"><i></i> Legal Document</div>
+    <h1>Terms of Service</h1>
+    <p class="meta">Last updated: February 27, 2026</p>
+  </div>
+
+  <div class="content">
+
+    <div class="section s1">
+      <h2>Acceptance</h2>
+      <p>By using OurDM you agree to these Terms and the <a href="/privacy">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="section s2">
+      <h2>Eligibility</h2>
+      <p>Minimum age is 13 (or higher per local law). Indian users must comply with IT Rules 2021.</p>
+    </div>
+
+    <div class="section s3">
+      <h2>Your account</h2>
+      <ul>
+        <li>You are responsible for your device and OTP security.</li>
+        <li>Single active device is enforced; new logins may sign out other sessions.</li>
+      </ul>
+    </div>
+
+    <div class="section s4">
+      <h2>Acceptable use</h2>
+      <ul>
+        <li>No illegal, harmful, infringing, harassing, or spam content.</li>
+        <li>No malware, hacking, reverse engineering, or service disruption.</li>
+        <li>Respect the privacy and consent of others at all times.</li>
+      </ul>
+    </div>
+
+    <div class="section s5">
+      <h2>Content &amp; backups</h2>
+      <ul>
+        <li>You own your content; we claim no ownership over it.</li>
+        <li>Undelivered messages auto-delete after 7 days; delivered messages are cleared from cloud queues.</li>
+        <li>Drive backups are stored in your <code>appDataFolder</code> and managed entirely by you.</li>
+        <li>"Pocket" vault remains on-device only — never synced to the cloud.</li>
+      </ul>
+    </div>
+
+    <div class="section s6">
+      <h2>Availability</h2>
+      <p>The service is provided "as is." Features may change, pause, or end at any time.</p>
+    </div>
+
+    <div class="section s7">
+      <h2>Liability</h2>
+      <p>To the fullest extent permitted by law, we are not liable for indirect or consequential damages. Total liability is limited to amounts you paid in the last 12 months.</p>
+    </div>
+
+    <div class="section s8">
+      <h2>Termination</h2>
+      <p>We may suspend or terminate accounts for policy or legal violations. You may stop using the service at any time.</p>
+    </div>
+
+    <div class="section s9">
+      <h2>Governing law</h2>
+      <p>Indian law governs these Terms. Courts of Bihar, India have jurisdiction.</p>
+    </div>
+
+    <div class="section s10">
+      <h2>Contact</h2>
+      <p><a href="mailto:ourdmofficial@gmail.com">ourdmofficial@gmail.com</a> &nbsp;·&nbsp; +91 8102668206</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 OurDM &nbsp;·&nbsp; <a href="mailto:ourdmofficial@gmail.com">ourdmofficial@gmail.com</a> &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a></p>
+  </footer>
+
+</body>
+</html>
